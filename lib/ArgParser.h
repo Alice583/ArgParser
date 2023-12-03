@@ -9,12 +9,12 @@ namespace ArgumentParser {
 
     class ArgParser {
     private:
-        std::map<char, std::string> charKeyStrValue;
-        std::map<std::string, Argument::Arg> strKeyArgVal;
+        std::map<char, std::string> shortKeyFullNameValue;
+        std::map<std::string, Argument::Arg> fullNameKeyArgValue;
         std::vector<std::string> helpWithParser;
         std::string nameProgram;
     public:
-        ArgParser(std::string name) {
+        ArgParser(const std::string& name) {
             nameProgram = name;
             helpWithParser.push_back(nameProgram + '\n');
         }
@@ -23,39 +23,39 @@ namespace ArgumentParser {
 
         bool CheckInt(std::string value);
 
-        void GenerateHelp(char shortName, std::string fullName, std::string description);
+        void GenerateHelp(const char& shortName, const std::string& fullName, const std::string& description);
 
-        bool Parse(std::vector<std::string> vector1);
+        bool Parse(const std::vector<std::string>& vector1);
 
-        bool Parse(int argc, char **argv);
+        bool Parse(int argc, char** argv);
 
-        Argument::Arg &AddStringArgument(const char *fullName);
+        Argument::Arg& AddStringArgument(const char* fullName);
 
-        Argument::Arg &AddStringArgument(char shortName, const char *fullName);
+        Argument::Arg& AddStringArgument(char shortName, const char* fullName);
 
-        Argument::Arg &AddStringArgument(char shortName, const char *fullName, const char *description);
+        Argument::Arg& AddStringArgument(char shortName, const char* fullName, const char* description);
 
-        std::string GetStringValue(const char *fullName);
+        std::string GetStringValue(const char* fullName);
 
-        Argument::Arg &AddIntArgument(const char *string);
+        Argument::Arg& AddIntArgument(const char* string);
 
-        Argument::Arg &AddIntArgument(char i, const char *string);
+        Argument::Arg& AddIntArgument(char i, const char* string);
 
-        Argument::Arg &AddIntArgument(const char *fullName, const char *string2);
+        Argument::Arg& AddIntArgument(const char* fullName, const char* string2);
 
-        int GetIntValue(const char *string);
+        int GetIntValue(const char* string);
 
-        int GetIntValue(const char *fullName, int index);
+        int GetIntValue(const char* fullName, int index);
 
-        Argument::Arg &AddFlag(char i, const char *string);
+        Argument::Arg& AddFlag(char i, const char* string);
 
-        Argument::Arg &AddFlag(char i, const char *string1, const char *string2);
+        Argument::Arg& AddFlag(char i, const char* string1, const char* string2);
 
-        Argument::Arg &AddFlag(const char *string1, const char *string2);
+        Argument::Arg& AddFlag(const char* string1, const char* string2);
 
-        bool GetFlag(const char *string);
+        bool GetFlag(const char* string);
 
-        void AddHelp(char shortName, const char *fullName, const char *description);
+        void AddHelp(char shortName, const char* fullName, const char* description);
 
         bool Help();
 

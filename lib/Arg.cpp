@@ -1,61 +1,61 @@
 #include "Arg.h"
 
-Argument::Arg &Argument::Arg::Default(const char *string) {
+Argument::Arg& Argument::Arg::Default(const char* string) {
     is_default = true;
     attributeForStringValue = string;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::Default(bool i) {
+Argument::Arg& Argument::Arg::Default(bool i) {
     is_default = true;
     attributeForBoolValue = i;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::StoreValue(std::string &basicString) {
+Argument::Arg& Argument::Arg::StoreValue(std::string& basicString) {
     linkOnStr = &basicString;
     is_storeValue = true;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::StoreValue(int &arg) {
+Argument::Arg& Argument::Arg::StoreValue(int& arg) {
     linkOnInt = &arg;
     is_storeValue = true;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::StoreValue(bool &flag) {
+Argument::Arg& Argument::Arg::StoreValue(bool& flag) {
     is_storeValue = true;
     linkOnBool = &flag;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::MultiValue() {
+Argument::Arg& Argument::Arg::MultiValue() {
     is_multi_value = true;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::MultiValue(int size) {
+Argument::Arg& Argument::Arg::MultiValue(int size) {
     size_vector = size;
     is_multi_value = true;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::StoreValues(std::vector<int> &vector1) {
+Argument::Arg& Argument::Arg::StoreValues(std::vector<int>& vector1) {
     is_storeValue = true;
     linkMultiInt = &vector1;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::StoreValues(std::vector<std::string> &vector1) {
+Argument::Arg& Argument::Arg::StoreValues(std::vector<std::string>& vector1) {
     is_storeValue = true;
     linkMultiStrings = &vector1;
-    return *this;
+    return* this;
 }
 
-Argument::Arg &Argument::Arg::Positional() {
+Argument::Arg& Argument::Arg::Positional() {
     is_positional = true;
-    return *this;
+    return* this;
 }
 
 void Argument::Arg::setType(char type) {
@@ -77,7 +77,7 @@ void Argument::Arg::setAttributeForIntValue(int attributeForIntValue) {
     }
 }
 
-void Argument::Arg::setAttributeForStringValue(const std::string &attributeForStringValue) {
+void Argument::Arg::setAttributeForStringValue(const std::string& attributeForStringValue) {
     is_user = true;
     if (is_storeValue && linkOnStr != nullptr) {
         *linkOnStr = attributeForStringValue;
@@ -108,15 +108,15 @@ bool Argument::Arg::isPositional() const {
     return is_positional;
 }
 
-int *Argument::Arg::getLinkOnInt() const {
+int* Argument::Arg::getLinkOnInt() const {
     return linkOnInt;
 }
 
-const std::vector<std::string> &Argument::Arg::getMultiString() const {
+const std::vector<std::string>& Argument::Arg::getMultiString() const {
     return multiString;
 }
 
-const std::vector<int> &Argument::Arg::getMultiInt() const {
+const std::vector<int>& Argument::Arg::getMultiInt() const {
     return multiInt;
 }
 
@@ -124,7 +124,7 @@ int Argument::Arg::getAttributeForIntValue() const {
     return attributeForIntValue;
 }
 
-const std::string &Argument::Arg::getAttributeForStringValue() const {
+const std::string& Argument::Arg::getAttributeForStringValue() const {
     return attributeForStringValue;
 }
 

@@ -13,14 +13,14 @@ namespace Argument {
         bool is_default = false;
         bool is_user = false;
 
-        int *linkOnInt = nullptr;
-        std::string *linkOnStr = nullptr;
-        bool *linkOnBool = nullptr;
-        std::vector<std::string> *linkMultiStrings = nullptr;
-        std::vector<int> *linkMultiInt = nullptr;
+        int* linkOnInt = nullptr;
+        std::string* linkOnStr = nullptr;
+        bool* linkOnBool = nullptr;
+        std::vector<std::string>* linkMultiStrings = nullptr;
+        std::vector<int>* linkMultiInt = nullptr;
 
         int attributeForIntValue;
-        std::string attributeForStringValue = "";
+        std::string attributeForStringValue;
         bool attributeForBoolValue;
 
         size_t size_vector = 0;
@@ -33,7 +33,7 @@ namespace Argument {
 
         void setAttributeForIntValue(int attributeForIntValue);
 
-        void setAttributeForStringValue(const std::string &attributeForStringValue);
+        void setAttributeForStringValue(const std::string& attributeForStringValue);
 
         void setAttributeForBoolValue(bool attributeForBoolValue);
 
@@ -41,15 +41,15 @@ namespace Argument {
 
         bool isPositional() const;
 
-        int *getLinkOnInt() const;
+        int* getLinkOnInt() const;
 
-        const std::vector<std::string> &getMultiString() const;
+        const std::vector<std::string>& getMultiString() const;
 
-        const std::vector<int> &getMultiInt() const;
+        const std::vector<int>& getMultiInt() const;
 
         int getAttributeForIntValue() const;
 
-        const std::string &getAttributeForStringValue() const;
+        const std::string& getAttributeForStringValue() const;
 
         int getSizeVector() const;
 
@@ -61,24 +61,24 @@ namespace Argument {
 
         bool isUser() const;
 
-        Argument::Arg &Default(const char *string);
+        Argument::Arg& Default(const char* string);
 
-        Argument::Arg &Default(bool i);
+        Argument::Arg& Default(bool i);
 
-        Argument::Arg &StoreValue(std::string &basicString);
+        Argument::Arg& StoreValue(std::string& basicString);
 
-        Argument::Arg &StoreValue(int &arg);
+        Argument::Arg& StoreValue(int& arg);
 
-        Argument::Arg &StoreValue(bool &flag);
+        Argument::Arg& StoreValue(bool& flag);
 
-        Argument::Arg &MultiValue();
+        Argument::Arg& MultiValue();
 
-        Argument::Arg &MultiValue(int size);
+        Argument::Arg& MultiValue(int size);
 
-        Argument::Arg &StoreValues(std::vector<int> &vector1);
+        Argument::Arg& StoreValues(std::vector<int>& vector1);
 
-        Argument::Arg &StoreValues(std::vector<std::string> &vector1);
+        Argument::Arg& StoreValues(std::vector<std::string>& vector1);
 
-        Argument::Arg &Positional();
+        Argument::Arg& Positional();
     };
 }
